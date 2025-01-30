@@ -50,15 +50,15 @@ List = {
             TriggerServerEvent("previewer:provideItems", "cadidentity")
         end
     },
-    snappyshadowmarket = {
-        title = "Shadowmarket / Blackmarket",
-        description = "Player run market, ablity to put items from your inventory for sale.",
-        purchase = "https://snappy.tebex.io/package/6295138",
-        action = function()
-            SetCoords(vec4(996.37, 3576.01, 34.61, 229.74))
-            ChatMessage('Target on the person and buy a tablet and explore')
-        end
-    },
+    -- snappyshadowmarket = {
+    --     title = "Shadowmarket / Blackmarket",
+    --     description = "Player run market, ablity to put items from your inventory for sale.",
+    --     purchase = "https://snappy.tebex.io/package/6295138",
+    --     action = function()
+    --         SetCoords(vec4(996.37, 3576.01, 34.61, 229.74))
+    --         ChatMessage('Target on the person and buy a tablet and explore')
+    --     end
+    -- },
     snappymulticharacter = {
         title = "Multicharacter & Spawn",
         description = "Multicharacter, Identity creator, Spawn selector.",
@@ -77,10 +77,19 @@ List = {
             TriggerServerEvent("previewer:provideItems", "snappyphone")
         end
     },
+    snappyracing = {
+        title = "Racing",
+        description = "Addon APP for Phone & Laptop.",
+        purchase = "https://snappy.tebex.io/package/6284648",
+        action = function()
+            TriggerServerEvent("previewer:provideItems", "snappyracing")
+        end
+    },
     snappylaptop = {
         title = "Laptop",
         description = "Party, Racing, Shadowmarket.",
-        purchase = "https://snappy.tebex.io",
+        location = vec4(996.37, 3576.01, 34.61, 229.74),
+        purchase = "https://snappy.tebex.io/package/6526782",
         action = function()
             TriggerServerEvent("previewer:provideItems", "snappylaptop")
         end
@@ -93,7 +102,6 @@ List = {
             SpawnVehicle(`polstainer`)
         end
     },
-
     tigvapidscout = {
         title = "Police Vapid Scout",
         description = "",
@@ -102,7 +110,6 @@ List = {
             SpawnVehicle(`polscout`)
         end
     },
-
     tigocelotjugular = {
         title = "Police Ocelot Jugular",
         description = "",
@@ -165,6 +172,102 @@ List = {
         purchase = "https://exclusive-wheels.tebex.io/package/6507288",
         action = function()
             SpawnVehicle(`poltor`)
+        end
+    },
+    tigomnisegt = {
+        title = "Police Omnis E-GT",
+        description = "",
+        purchase = "https://exclusive-wheels.tebex.io/package/6585799",
+        action = function()
+            SpawnVehicle(`polomnisegt`)
+        end
+    },
+    tiggranger = {
+        title = "Police Granger 3600",
+        description = "",
+        purchase = "https://exclusive-wheels.tebex.io/package/6620669",
+        action = function()
+            SpawnVehicle(`polgranger`)
+        end
+    },
+    tigcara = {
+        title = "Police Caracara",
+        description = "",
+        purchase = "https://exclusive-wheels.tebex.io/package/6620679",
+        action = function()
+            SpawnVehicle(`polcara`)
+        end
+    },
+    tigshinobi = {
+        title = "Police Shinobi",
+        description = "",
+        purchase = "https://exclusive-wheels.tebex.io/package/6595624",
+        action = function()
+            SpawnVehicle(`polshinobi`)
+        end
+    },
+    tigregent = {
+        title = "Police Brute Regent",
+        description = "",
+        purchase = "https://exclusive-wheels.tebex.io/package/6652525",
+        action = function()
+            SpawnVehicle(`polregent`)
+        end
+    },
+    tigdom = {
+        title = "Police Dominator GT",
+        description = "",
+        purchase = "https://exclusive-wheels.tebex.io/package/6596945",
+        action = function()
+            SpawnVehicle(`poldom`)
+        end
+    },
+    tigvigero = {
+        title = "Police Vigero Zx",
+        description = "",
+        purchase = "https://exclusive-wheels.tebex.io/package/6596945",
+        action = function()
+            SpawnVehicle(`polvigero`)
+        end
+    },
+    tigschlagen = {
+        title = "Police Schlagen GT",
+        description = "",
+        purchase = "https://exclusive-wheels.tebex.io/package/6596945",
+        action = function()
+            SpawnVehicle(`polschgt`)
+        end
+    },
+    tiggauntlet4 = {
+        title = "Police Bravado Gauntlet",
+        description = "",
+        purchase = "https://exclusive-wheels.tebex.io/package/6585785",
+        action = function()
+            SpawnVehicle(`polgauntlet4`)
+        end
+    },
+    tigr300 = {
+        title = "Police Annis 300R",
+        description = "",
+        purchase = "https://exclusive-wheels.tebex.io/package/6595681",
+        action = function()
+            SpawnVehicle(`polr300`)
+        end
+    },
+    tigbanshee = {
+        title = "Police Banshee GTS",
+        description = "",
+        purchase = "https://exclusive-wheels.tebex.io/package/6585776",
+        action = function()
+            SpawnVehicle(`polbanshee`)
+        end
+    },
+    tigcypher = {
+        title = "Police Ubermatch Cypher",
+        description = "",
+        purchase = "https://exclusive-wheels.tebex.io/package/6617021",
+        action = function()
+            SpawnVehicle(`polcypher`)
         end
     },
 }
