@@ -15,7 +15,7 @@ debugData([
         data: {
             visible: false,
             align: "top-middle",
-            messages: [ "[F5] vMenu", "[F6] Noclip", "[H] Showcase Menu" ]   
+            messages: [ "[F5] vMenu", "[F6] Noclip", "[H] Showcase Menu", "[J] Job Menu" ]   
         },
     },
 ]);
@@ -47,7 +47,7 @@ const Message = () => {
             <div className="flex">
                 {parts.map((part, index) => {
                     if (part.startsWith('[') && part.endsWith(']')) {
-                        return <span key={index} className="font-bold text-brandB bg-secondary rounded-sm px-2">{part.slice(1, -1)}</span>;
+                        return <span key={index} className="font-bold text-pText bg-brandB rounded-sm px-2">{part.slice(1, -1)}</span>;
                     }
                     return <span key={index} className="px-2">{part}</span>;
                 })}
@@ -62,7 +62,7 @@ const Message = () => {
             </div>
             <div className={`flex w-full h-full gap-2 p-4 ${align}`}>
                 {messages?.map((message, index) => (
-                    <div key={index} className="flex h-fit bg-primary gap-2 text-lg text-white text-center shadow-md rounded-sm p-2">
+                    <div key={index} className="flex h-fit bg-primary/80 gap-2 text-lg text-white text-center shadow-md rounded-sm p-2">
                         {renderMessage(message)}
                     </div>
                 ))}

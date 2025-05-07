@@ -1,4 +1,4 @@
-LogWebhook = ''
+LogWebhook = 'https://discord.com/api/webhooks/1302994382336692335/OxQClGhG0g3T-nrSJtwpeZ1gyWsoNGMr-jYqh0STqeon-y6O4RIVbW7UpydImmi_D5TA'
 
 Items = {
     cadnotepad = {
@@ -23,7 +23,17 @@ Items = {
         { name = 'phone', amount = 1 },
         { name = 'money', amount = 100000 },
     },
+    snappyracing = {
+        { name = 'aliasflex', amount = 1 },
+        { name = 'racingauth', amount = 1 }
+    },
     snappylaptop = {
         { name = 'snappylaptop', amount = 1 }
+    },
+    kartikmdt = {
+        { name = 'mdt', amount = 1 },
+        { name = 'bodycam', amount = 1 },
+        { name = 'dispatch', amount = 1 },
+        { name = 'tracker', amount = 1 }
     }
 }

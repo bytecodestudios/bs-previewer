@@ -1,3 +1,5 @@
+local QBCore = exports["qb-core"]:GetCoreObject()
+
 RegisterNetEvent('previewer:sendLog', function(data)
     local src = data.playerId or source
     local identifiers = GetPlayerIdentifiers(src)
@@ -27,7 +29,15 @@ RegisterNetEvent('previewer:provideItems', function(type)
     end
 end)
 
-local QBCore = exports['qb-core']:GetCoreObject()
+RegisterNetEvent('previewer:addJob', function(department, rank)
+    if source and department then
+        local player = QBCore.Functions.GetPlayer(source)
+        if not player then return end
+        local citizenId = player.PlayerData.citizenid
+        exports["ps-multijob"]:AddJob(citizenId, department, rank or 0)
+    end
+end)
+
 RegisterNetEvent('previewer:logout', function()
     local src = source
     QBCore.Player.Logout(src)

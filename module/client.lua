@@ -72,6 +72,42 @@ function SpawnVehicle(vehHash)
     TriggerServerEvent('qb-vehiclekeys:server:AcquireVehicleKeys', GetVehicleNumberPlateText(vehicle))
 end
 
+function ToggleMenu(status)
+    visible = status
+    local data = { visible = visible }
+    if visible then
+        data.categories = Categories or {}
+        data.list = {}
+        for id, values in pairs(List) do
+            data.list[#data.list + 1] = {
+                id = id,
+                title = values.title,
+                description = values.description,
+                category = values.category,
+                purchase = values.purchase,
+                buttons = {
+                    location = values.location and true or false,
+                    action = values.action and true or false,
+                }
+            }
+        end
+        table.sort(data.list, function(a, b)
+            return string.lower(a.title) < string.lower(b.title)
+        end)
+    end
+    if visible then disableControls() end
+    SetNuiFocus(visible, visible)
+    -- SetNuiFocusKeepInput(visible)
+    SendNUIMessage({
+        action = "MENU",
+        data = data
+    })
+    TriggerServerEvent('previewer:sendLog', {
+        title = 'TOGGLE MENU',
+        description = string.format('Player %s menu', visible and 'opened' or 'closed'),
+    })
+end
+
 RegisterNuiCallback('buttonClicked', function(data, cb)
     if data.type == 'location' then
         SetCoords(List[data.id].location)
@@ -86,39 +122,14 @@ RegisterNuiCallback('buttonClicked', function(data, cb)
     cb('ok')
 end)
 
+RegisterNuiCallback('closeMenu', function(data, cb)
+    ToggleMenu(false)
+    cb('ok')
+end)
+
 RegisterKeyMapping('showcase_menu', 'Showcase Menu', 'keyboard', 'H')
 RegisterCommand('showcase_menu', function()
-    visible = not visible
-    local data = { visible = visible }
-    if visible then
-        data.list = {}
-        for id, values in pairs(List) do
-            data.list[#data.list + 1] = {
-                id = id,
-                title = values.title,
-                description = values.description,
-                purchase = values.purchase,
-                buttons = {
-                    location = values.location and true or false,
-                    action = values.action and true or false,
-                }
-            }
-        end
-        table.sort(data.list, function(a, b)
-            return string.lower(a.title) < string.lower(b.title)
-        end)
-    end
-    disableControls()
-    SetNuiFocus(visible, visible)
-    SetNuiFocusKeepInput(visible)
-    SendNUIMessage({
-        action = "MENU",
-        data = data
-    })
-    TriggerServerEvent('previewer:sendLog', {
-        title = 'TOGGLE MENU',
-        description = string.format('Player %s menu', visible and 'opened' or 'closed'),
-    })
+    ToggleMenu(not visible)
 end, false)
 
 CreateThread(function()
